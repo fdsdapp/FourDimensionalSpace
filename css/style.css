@@ -1,0 +1,264 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.home{
+    background: #000000;
+    color: #fefefe;
+    font-size: 0.4rem;
+}
+.header{
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 .2rem;
+    box-sizing: border-box;
+    background: #000000;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+.logo{
+    width: .6rem;
+    height: .6rem;
+}
+.logo img{
+    width: 100%;
+}
+.languageIcon {
+    width: .6rem;
+    height:.6rem;
+}
+.languageIcon img {
+    width: 90%;
+}
+.insurance{
+    width: 48%;
+    height: 1.5rem;
+    background: linear-gradient(to right, #f6de98 0%, #ffe484 100%);
+    border-radius: 10px;
+    top: 1.2rem;
+   margin-top: 50px;
+}
+
+.insurance_info img{
+    width: 1rem;
+    height: auto;
+    position: absolute;
+    opacity: 0.1;  
+}
+.insurance_content{
+    color: #333;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+.insurance_num{
+    font-size: .46rem;
+    color: #fd6262;
+    /* position: absolute; */
+    width: 100%;
+    height: .6rem;
+    line-height: .6rem;
+    /* top: 32px; */
+    /* left: 0; */
+    /* right: 0; */
+    /* margin: 0 auto; */
+    text-align: center;
+    text-decoration: underline;
+}
+.ranking{
+    font-size: .32rem;
+    width: 90%;
+    height: .5rem;
+    /* background: #f6de98; */
+    /* border-radius: 10px; */
+    /* margin-top: 66px; */
+    border-bottom: 1px solid #f6de98;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    justify-content: space-between;
+}
+.ranking img{
+    width: .45rem;
+    height: .5rem;
+}
+
+.ranking_info{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 0.28rem;
+    margin-bottom: 8px;
+}
+.ranking_pai{
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: .28rem;
+}
+.rankingBox{
+    border: 1px solid #f6de98;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    background: #272727;
+}
+.from_div{
+    width: 90%;
+    height: 47px;
+    background: #272727;
+    border-radius: 5px;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 40px;
+    font-size: .35rem;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ffe484;
+    overflow: hidden;
+}
+.from_div div{
+    flex:1;
+    text-align: center;
+    height: 47px;
+    line-height: 47px;
+}
+.from_div_hover{
+    background: #ffe484;
+    color: #333;
+}
+.inputBox{
+    background: #272727;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 5px;
+    padding: 14px;
+    box-sizing: border-box;
+    margin: 12px auto;
+    position: relative;
+}
+.inputBox_div{
+    display: flex;
+    width: 90%;
+    /* margin: 0 auto; */
+    margin: 12px auto;
+}
+.inputBox_input{
+    display: flex;
+    flex: 1;
+    margin-right: 10px;
+}
+.inputBox_span{
+    display: block;
+    width: 100%;
+    /* height: 34px; */
+    border: 1px solid #ffe484;
+    background: none;
+    padding: 0 12px;
+    color: #fefefe;
+}
+.inputBox_span2{
+    display: block;
+    width: 2rem;
+    height: .6rem;
+    line-height: .6rem;
+    text-align: center;
+    border: 1px solid #ffe484;
+    background: #000;
+    font-size: .28rem;
+}
+.send{
+    font-size: .28rem;
+    width: 1.4rem;
+    height: .6rem;
+    background: #2aa76d;
+    line-height: .6rem;
+    text-align: center;
+}
+.bottom_show{
+    width: 90%;
+    height: 34px;
+    font-size: .35rem;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 26px;
+    margin-bottom: 14px;
+}
+.bottom_show span{
+    display: block;
+    margin-right: 15px;
+}
+.bottom_show_hover{
+    border-bottom: 1px solid #fefefe;
+}
+.profit{
+    display: flex;
+    justify-content: space-between;
+    font-size: .28rem;
+    margin: 4px 0;
+}
+.showProfit{
+    display: none;
+}
+.cashOut{
+    width: 100%;
+    height: 28px;
+    background: #ffe484;
+    color: #333;
+    font-size: .32rem;
+    line-height: 28px;
+    text-align: center;
+    margin-top: 10px;
+}
+.settle{
+    color: #fefefe;
+    text-decoration: underline;
+}
+.inputBox{
+    display: none
+}
+.inputBoxInvi{
+    display: flex;
+    align-items: center;
+    font-size: .28rem;
+    margin: 5px 0;
+}
+.inputBoxInvi img{
+    width: .48rem;
+    margin-right: 10px
+}
+.active{
+    display: block
+}
+.box {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+/* .rank_num{
+    min-width: 30px;
+}
+.rank_diva{
+    min-width: 50px;
+}
+.rank_divb{
+    flex: 1;
+}
+.rank_number {
+    min-width: 30px;
+} */
+.rank_bottom{
+     min-width: 30px;
+}
+.rank_diva{
+    transform: translateX(-10px);
+}

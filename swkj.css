@@ -1,0 +1,344 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+body {
+    background: #010103;
+    color: rgba(179, 179, 179, 1);
+    font-size: 14px;
+    padding: 0 16px;
+    padding-bottom: 43px;
+}
+
+.header {
+    height: 74px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+#hideBox {
+    position: absolute;
+    right: 0;
+    top: 54px;
+    width: 76px;
+    height: 96px;
+    background: rgba(66, 50, 0, 1);
+    border-radius: 4px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: rgba(162, 122, 0, 1);
+}
+.hidden{
+    display: none !important;
+}
+.hideActive{
+    color:rgba(238,185,10,1);
+}
+.imgLeft {
+    width: 38px;
+    height: 38px;
+}
+
+.imgcenter {
+    width: 93px;
+    height: 24px;
+}
+
+.imgright {
+    width: 22px;
+    height: 22px;
+}
+
+.top {
+    height: 120px;
+    background-image: url('./img/top_bg@3x.png');
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 23px;
+}
+
+.bxc {
+    flex: 1;
+
+    /* display: flex; */
+}
+
+.bxc-text {
+    color: rgba(238, 185, 10, 1);
+}
+
+.bxc-num {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 1);
+    margin-top: 5px;
+}
+
+.bxc-danwei {
+    font-size: 12px;
+}
+
+/* 排行部分 */
+.paiHang {
+    height: 230rpx;
+    background: rgba(19, 19, 19, 0.8);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.phHead {
+    display: flex;
+    justify-content: space-between;
+    height: 53px;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.phHead h5 {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.phHead div {
+    color: rgba(238, 185, 10, 1);
+    font-size: 12px;
+}
+
+.paiList {
+    font-size: 14px;
+}
+
+.listNav {
+    display: flex;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+}
+
+.listNav span {
+    color: rgba(179, 179, 179, 1);
+}
+
+.listcenter span {
+    color: rgba(255, 255, 255, 1);
+}
+
+.listMing {
+    width: 20%;
+}
+
+.listAdress {
+    width: 20%;
+}
+
+.listNum {
+    width: 35%;
+}
+
+.listJiang {
+    width: 25%;
+}
+
+.listcenter .listone {
+    color: rgba(57, 217, 197, 1);
+}
+
+.listcenter .listTwo {
+    color: rgba(228, 119, 116, 1);
+}
+
+.listcenter .listhree {
+    color: rgba(136, 104, 220, 1);
+}
+
+.listcenter .listfour {
+    color: rgba(110, 158, 237, 1);
+}
+
+.listcenter .listfive {
+    color: rgba(254, 153, 2, 1);
+}
+
+/* tab 切换 */
+#tab ul {
+    margin-top: 10px;
+    height: 43px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(19, 19, 19, 1);
+    border-radius: 8px 8px 0px 0px;
+    color: rgba(179, 179, 179, 1);
+}
+
+.active {
+    color: rgba(255, 255, 255, 1);
+}
+
+/* 参与 */
+#firstPage {
+    height: 107px;
+    background: rgba(19, 19, 19, 1);
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+#secondPage {
+    height: 138px;
+    background: rgba(19, 19, 19, 1);
+    border-radius: 0px 0px 8px 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.secondPagelist {
+    display: flex;
+    margin-bottom: 13px;
+}
+
+.secondPagelist span {
+    margin-right: 10px;
+    width: 56px;
+    height: 24px;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: center;
+    background: rgba(238, 185, 10, 1);
+    border-radius: 16px;
+    color: rgba(1, 0, 36, 1);
+}
+
+#threePage {
+    /* height: 138px; */
+    background: rgba(19, 19, 19, 1);
+    border-radius: 0px 0px 8px 8px;
+    padding-left: 20px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.threePageUl li {
+    line-height: 25px;
+    width: 100%;
+    word-break:break-all
+}
+
+.copy {
+    display: inline-block;
+    width: 66px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: rgba(238, 185, 10, 1);
+    border-radius: 10px;
+    font-size: 12px;
+    color: rgba(1, 0, 36, 1);
+    margin-left: 10px;
+}
+
+.input {
+    display: flex;
+}
+
+.firstPageinput {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    width: 173px;
+    height: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(238, 185, 10, 1);
+}
+
+.firstPageinput input {
+    background-color: rgba(19, 19, 19, 1);
+    width: 130px;
+    border: none;
+    margin-left: 10px;
+    color: aliceblue;
+    outline: none;
+}
+
+.firstPageBtn {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    background: rgba(238, 185, 10, 1);
+    border-radius: 16px;
+    color: rgba(1, 0, 36, 1);
+    text-align: center;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.message {
+    margin-top: 18px;
+    color: rgba(179, 179, 179, 1);
+}
+
+#fourPage {
+    padding: 15px;
+    color: rgba(255, 255, 255, 1);
+    line-height: 28px;
+}
+
+.hide {
+    display: none !important;
+}
+
+.Myshouyi {
+    margin-top: 10px;
+    padding: 0 13px;
+}
+
+.Myshouyi h5 {
+    height: 40px;
+    line-height: 40px;
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+}
+
+.Myshouyi li {
+    display: flex;
+    justify-content: space-between;
+    line-height: 26px;
+}
+
+.SYright {
+    display: flex;
+    color: rgba(255, 255, 255, 1);
+}
+
+.Myshouyi ul {
+    margin-top: 10px;
+}
+
+.liBtn {
+    color: rgba(228, 119, 113, 1);
+    margin-left: 10px;
+}
+
+.tixian {
+    margin: 0 21px;
+    margin-top: 26px;
+    width: 90%;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: rgba(1, 0, 36, 1);
+    font-size: 16px;
+    background: rgba(238, 185, 10, 1);
+    border-radius: 18px;
+}

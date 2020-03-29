@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="./swkj.css">
+	<script src="./js/jquery-1.8.1.min.js"></script>
+	<title>四维空间</title>
+	<style>
+		.lan-26 {
+			display: inline-block;
+			/* width: 66px; */
+			padding: 2px 5px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			background: rgba(238, 185, 10, 1);
+			border-radius: 10px;
+			font-size: 12px;
+			color: rgba(1, 0, 36, 1);
+			/* margin-left: 10px; */
+			margin-top: 10px;
+		}
+		#invite-link{
+			width: 100%;
+			width: 100%;
+    word-break:break-all
+		}
+	</style>
+</head>
+
+
+<body>
+	<div class="contain">
+		<div class="header">
+			<img class="imgLeft" src="./img/logo@3x.png" alt="">
+			<img class="imgcenter" src="./img/swkj.png" alt="">
+			<img class="imgright" id="change" src="./img/fanyi_icon@3x.png" alt="">
+			<div id="hideBox" class="hidden">
+				<div class="hideActive language-menu" data-value="zh">中文</div>
+				<div class="language-menu" data-value="us">English</div>
+				<div class="language-menu" data-value="sg">繁体</div>
+			</div>
+		</div>
+
+		<!-- 背景图头部 -->
+		<div class="top">
+			<div class="bxc">
+				<div class="bxc-text lan-2">
+					保险池
+				</div>
+				<div class="bxc-num">
+					<span class="b-pot">0.0000</span>ETH
+				</div>
+			</div>
+			<div class="bxc">
+				<div class="bxc-text lan-3">
+					奖金池
+				</div>
+				<div class="bxc-num">
+					<span class="s-pot">0.0000</span>ETH
+				</div>
+			</div>
+		</div>
+
+		<!-- 排行 -->
+		<div class="paiHang">
+			<div class="phHead">
+				<h5 class="lan-4">周排行</h5>
+				<div><span class="lan-5">距離開獎</span><span class="b-dtime24"></span></div>
+			</div>
+			<ul class="paiList">
+				<li class="listNav">
+					<div class="listMing lan-6">名次</div>
+					<div class="listAdress lan-7">地址</div>
+					<div class="listNum lan-8">總投入數量</div>
+					<div class="listJiang lan-9">獎勵</div>
+				</li>
+				<li class="listNav listcenter rank1">
+					<span class="listMing rank_num">1</span>
+					<span class="listAdress rank_diva">***</span>
+					<span class="listNum rank_divb">0</span>
+					<span class="listJiang listone">50%</span>
+				</li>
+				<li class="listNav listcenter rank2">
+					<span class="listMing rank_num">2</span>
+					<span class="listAdress rank_diva">***</span>
+					<span class="listNum rank_divb">0</span>
+					<span class="listJiang listone">25%</span>
+				</li>
+				<li class="listNav listcenter rank3">
+					<span class="listMing rank_num">3</span>
+					<span class="listAdress rank_diva">***</span>
+					<span class="listNum rank_divb">0</span>
+					<span class="listJiang listone">15%</span>
+				</li>
+				<li class="listNav listcenter rank4">
+					<span class="listMing rank_num">4</span>
+					<span class="listAdress rank_diva">***</span>
+					<span class="listNum rank_divb">0</span>
+					<span class="listJiang listone">10%</span>
+				</li>
+				<li class="listNav listcenter rank5">
+					<span class="listMing rank_num">5</span>
+					<span class="listAdress rank_diva">***</span>
+					<span class="listNum rank_divb">0</span>
+					<span class="listJiang listone">5%</span>
+				</li>
+
+			</ul>
+		</div>
+		<!-- tab 切换 -->
+
+		<div id="tab">
+			<ul id="ul">
+				<li class="active lan-10">参与</li>
+				<li class="lan-11">门票</li>
+				<li class="lan-12">邀请</li>
+				<li class="lan-13">规则</li>
+			</ul>
+		</div>
+		<div id="tabs">
+			<!-- 参与 -->
+			<div id="firstPage" class="page show">
+				<div class="input">
+					<div class="firstPageinput">
+						<input placeholder="0" class="ethinput" type="text">
+						<span>ETH</span>
+					</div>
+					<div class="firstPageBtn buywitheth lan-14">
+						发送ETH
+					</div>
+				</div>
+				<div class="message lan-15">
+					请先购买门票参与，当前燃烧比 <span style="color:#2aa76d">1ETH=</span><span class="ext-times"></span><span
+						class="ticket-sybmol">
+				</div>
+			</div>
+			<!-- 门票 -->
+
+			<div id="secondPage" class="page hide">
+				<div class="secondPagelist">
+					<span class="lan-16" id="buy-node-a">节点1</span>
+					<span class="lan-17" id="buy-node-b">节点2</span>
+					<span class="lan-18" id="buy-node-c">节点3</span>
+				</div>
+				<div class="input">
+					<div class="firstPageinput">
+						<input placeholder="0" id="ticket-ethinput" type="text">
+						<span>ETH</span>
+					</div>
+					<div class="firstPageBtn lan-20" id="buy-ticket-action">
+						购买门票
+					</div>
+				</div>
+				<div class="message">
+					<span class="lan-21">購買入場門票</span><span style="color:#2aa76d">1ETH=</span><span
+						class="ticket-rate"></span><span class="ticket-sybmol"></span>
+				</div>
+			</div>
+			<!-- 邀请 -->
+			<div id="threePage" class="hide page">
+				<ul class="threePageUl">
+					<li><span class="lan-22">我的邀請人：</span><span class="my-inviter">/</span></li>
+					<li><span class="lan-23">我的直推數量：</span><span class="my-recomand-count">0</span></li>
+					<li><span class="lan-24">我的直推業績：</span><span class="my-recomand-sum">0</span></li>
+					<li><span class="lan-47">我的团队業績：</span><span class="my-team-sum">0
+					</li>
+					<li">
+						<div class="inputBoxInvi"><span class="lan-25">我的邀請鏈接：</span><span class=""
+								id="invite-link"></span></div>
+						</li>
+						<li><a id="share-link" data-clipboard-action="copy" data-clipboard-target="#invite-link"
+								class="default bsbtn btn-warning btn S_cbbsbu_96d36c55 lan-26" options="btn-warning"
+								sizes="default" type="button"><span class="lan-26">復制我的鏈接</span></a>
+						</li>
+				</ul>
+
+			</div>
+			<div id="fourPage" class="hide page">
+
+				<div class="fourPageMsg info_sg" style="display: block;">
+					每個賬號在出局前僅接受壹筆投資，達到出局收益後可繼續追加投資<br>
+					靜態分紅按照vip級別每天0.02%-0.04%累計式增長<br>
+					推薦傭金依次50%->20%->10%->5%->5%->2%->2%->2%->2%->2%獲取傭金獎勵，可即時提現<br>
+					保險池持續累計達到指定規則後觸發，平均獎勵給後100名投資者<br>
+					<br>
+					獎勵直推業績前五名依次獎勵50%->20%->15%->10%->5%<br>
+					<br>
+					復投基金，每日收益10%保證留用下壹次投入<br>
+					<br>
+					門票基金，每日收益10%重復投資使用<br>
+					<br>
+					節點收益，<br>
+					節點壹，買入10ETH門票<br>
+					節點二，買入20ETH門票<br>
+					節點三，買入30ETH門票<br>
+					每個節點可獲旗下會員投資額2%節點獎，可累計購買1.2.3節點，榮獲6%節點獎.所得門票可專賣給旗下會員<br>
+				</div>
+				<div class="info_zh" style="display: none;">
+					每个账号在出局前仅接受一笔投资，达到出局收益后可继续追加投资<br>
+					静态分红按照vip级别每天0.02%-0.04%累计式增长<br>
+					推荐佣金依次50%->20%->10%->5%->5%->2%->2%->2%->2%->2%获取佣金奖励，可即时提现<br>
+					保险池持续累计达到指定规则后触发，平均奖励给后100名投资者<br>
+					<br>
+					奖励直推业绩前五名依次奖励50%->20%->15%->10%->5%<br>
+					<br>
+					复投基金，每日收益10%保证留用下一次投入<br>
+					<br>
+					门票基金，每日收益10%重复投资使用<br>
+					<br>
+					节点收益，<br>
+					节点一，买入10ETH门票<br>
+					节点二，买入20ETH门票<br>
+					节点三，买入30ETH门票<br>
+					每个节点可获旗下会员投资额2%节点奖，可累计购买1.2.3节点，荣获6%节点奖.所得门票可专卖给旗下会员<br>
+				</div>
+				<div class="info_us" style="display: none;">
+					<p>
+						Each account accepts only one investment
+						before it is out. Additional investment
+						sits after out-of-the-market returns
+						are reached
+					</p>
+					<br>
+					<p>
+						Static dividends increase by 0.02%-0.04% per day at VIP level
+					</p>
+					<br>
+					<p>
+						Recommended commissions 50%->20%->10%->5%->5%->2%->2%->2%->2%->2% to get real-time withdrawals
+					</p>
+					<br>
+					<p>
+						Triggered after the pool continues to accumulate to the specified rules, with an average reward
+						to
+						the last 100 investors
+					</p>
+					<br>
+					<p>
+						The top five rewards for direct performance are awarded 50%->20%->15%->10%->5%
+					</p>
+					<br>
+					<p>
+						Reinvestment fund, daily return of 10% guaranteed to retain the next investment
+					</p>
+					<br>
+					<p>
+						Ticket fund, 10% repeat investment of daily earnings
+					</p>
+					<br>
+					<p>
+						Node Benefits<br>
+						Node 1, Buy 10ETH Tickets<br>
+						Node 2, buy 20ETH tickets<br>
+						Node 3, buy 30ETH tickets<br>
+					</p>
+					<br>
+					<p>
+						Each node can receive 2% node award of its member investment, can purchase 1.2.3 nodes
+						cumulatively,
+						and win 6% node award. Tickets earned can be sold exclusively to its members
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="Myshouyi">
+			<h5 class="lan-27">我的收益</h5>
+			<ul>
+				<li>
+					<div class="SYleft">
+						<span class="lan-28">倒計時</span><span class="b-dtime"></span><span class="lan-29">後收益</span>
+					</div>
+					<div class="SYright">
+						<span><span class="p-estimate_profit">0</span>ETH</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-30">
+						2倍封顶出局还差
+					</div>
+					<div class="SYright">
+						<span><span class="pext-incomecan">0</span>ETH</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-31">
+						已计算分红收益
+					</div>
+					<div class="SYright">
+						<span>
+							<sapn class="p-gen">0</sapn>ETH
+						</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-32">
+						门票销毁倍率
+					</div>
+					<div class="SYright">
+						<span><span class="ext-times">0</span>TIMES</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-33">
+						已销毁门票
+					</div>
+					<div class="SYright">
+						<span><span class="ext-destory">0</span><span class="ticket-sybmol"></span></span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-34">
+						已拨款资金
+					</div>
+					<div class="SYright">
+						<span> <span class="p-teth">0</span>ETH</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-35">
+						排行榜奖励
+					</div>
+					<div class="SYright">
+						<span> <span class="p-win">0</span>ETH</span>
+
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-36">
+						可结算收益
+					</div>
+					<div class="SYright">
+						<span class="pext-incomeper">0</span>
+						<span class="liBtn action-finish lan-37">结算</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-38">
+						推荐奖励
+					</div>
+					<div class="SYright">
+						<span> <span class="pext-teamgen">0</span>ETH</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-39">
+						节点收益
+					</div>
+					<div class="SYright">
+						<span> <span class="node-profit">0</span>ETH</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-40">
+						可提收益
+					</div>
+					<div class="SYright">
+						<span> <span class="withdrawable">0</span>ETH</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-41">
+						我的门票
+					</div>
+					<div class="SYright">
+						<span> <span class="my-ticket"></span><span class="ticket-sybmol"></span></span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-42">
+						复投基金
+					</div>
+					<div class="SYright">
+						<span> <span class="refund">0</span>ETH</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-43">
+						门票基金
+					</div>
+					<div class="SYright">
+						<span> <span class="ticketFund">0</span></span>
+						<span class="liBtn exchangeTicket lan-44">兑换</span>
+					</div>
+				</li>
+				<li>
+					<div class="SYleft lan-45">
+						我的節點
+					</div>
+					<div class="SYright">
+						<span class="my-node"></span>
+					</div>
+				</li>
+			</ul>
+			<div class="tixian my-withdraw-btn lan-46">
+				提现收益
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="static/index_data.js"></script>
+	<script>
+		var page_slug = 'index';
+	</script>
+	<script type="text/javascript" src="static/vendor_c.bundle.built.47020bb2.cache.js"></script>
+	<script type="text/javascript" src="static/cst.built.426f7fd1.cache.js"></script>
+	<script src="static/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk="
+		crossorigin="anonymous"></script>
+	<script src="static/bignumber.min.js"></script>
+	<script src="static/alertify.js"></script>
+	<script src="static/store.min.js"></script>
+	<script src="static/clipboard.min.js"></script>
+	<script src="static/lib1.js"></script>
+</body>
+<script>
+	window.onload = function () {
+		//  中英文切换
+		var ochange = document.getElementById('change')
+		var changeDive = document.getElementById('hideBox')
+		ochange.onclick = function () {
+			if (changeDive.className == "") {
+				changeDive.className = 'hidden'
+			} else {
+				changeDive.className = ''
+			}
+		}
+		var oTab = document.getElementById("tab")
+		var oTabs = document.getElementById("tabs")
+		var oUl = document.getElementById("ul")
+		var oLis = oUl.getElementsByTagName("li")
+		var oDivs = document.querySelectorAll(".page")
+		for (var i = 0; i < oLis.length; i++) {
+			oLis[i].index = i;
+			oLis[i].onclick = function () {
+				for (var n = 0; n < oDivs.length; n++) {
+					oLis[n].className = "";
+					oDivs[n].className = " page hide";
+				}
+				this.className = "active";
+				oDivs[this.index].className = "page";
+			}
+		};
+	}
+</script>
+<script>
+	$(document).ready(function () {
+		var abi = [];
+		var abitoken = [];
+
+		$.ajax({
+			type: "get",
+			// url: url + "?interval=" + Math.random(),
+			url: "/static/abi2.txt",
+			data: null,
+			async: false,
+			success: function (msg) {
+				abi = eval(msg);
+			},
+			complete: function (xmlhttp, textStatus) {
+
+			}
+		});
+
+		$.ajax({
+			type: "get",
+			// url: url + "?interval=" + Math.random(),
+			url: "/static/abi1.txt",
+			data: null,
+			async: false,
+			success: function (msg) {
+				abitoken = eval(msg);
+			},
+			complete: function (xmlhttp, textStatus) {
+
+			}
+		});
+
+		var ticket = "0x2F9D4b9A948e1cAD91F90e6Ab3AcA76EB3a9C51b";
+		var gcontract = "0x66Ea811236c655ca168c6De055B8AB9BDF7F913a";
+		$.ajax({
+			type: "get",
+			// url: url + "?interval=" + Math.random(),
+			url: "/static/1.txt",
+			data: null,
+			async: false,
+			success: function (msg) {
+				ticket = msg;
+				console.log(ticket);
+			},
+			complete: function (xmlhttp, textStatus) {
+
+			}
+		});
+
+		$.ajax({
+			type: "get",
+			// url: url + "?interval=" + Math.random(),
+			url: "/static/2.txt",
+			data: null,
+			async: false,
+			success: function (msg) {
+				gcontract = msg;
+			},
+			complete: function (xmlhttp, textStatus) {
+
+			}
+		});
+		var BN = BigNumber.clone();
+		var itickets;
+		var gnetId = 5777;
+		var netCheck = false;
+		var symbol;
+		var web3 = window.web3;
+		var myTickets;
+		var times;
+		var parterCanWd = 0;
+		var defaultAccount = "";
+		var isStart = false;
+		var myETH = 0;
+		var refund = 0;
+		var lastMoney = 0;
+		var lotteryTime = 3600;
+
+		var language_sg = [
+			'<img src="./image/4sg.png" alt="">', "保險池", "獎金池", "周排行", "距離開獎", "名次", "地址", "總投入數量", "獎勵", "參與",
+			"門票", "邀請", "規則", "發送ETH",
+			"請先購買門票再參與，當前燃燒比例", "節點1", "節點2", "節點3", 
+			"購買門票", "購買入場門票", "我的邀請人：", "我的直推數量：", "我的直推業績：", "我的邀請鏈接：", "復制我的鏈接", "我的收益", "倒計時", "後收益",
+			"2倍封頂出局還差", "已結算分紅收益", "門票銷毀倍率",
+			"已銷毀門票", "已投入資金", "排行榜獎勵", "可結算收益", "結算", "推薦獎勵", "節點收益", "可提收益", "我的門票", "復投基金", "門票基金", "兌換",
+			"我的節點", "提現收益", "我的團隊業績："
+		];
+
+		var language_zh = [
+			'<img src="./image/4zh.png" alt="">', "保险池", "奖金池", "周排行", "距离开奖", "名次", "地址", "总投入数量", "奖励", "参与",
+			"门票", "邀请", "规则", "发送ETH",
+			"请先购买门票再参与，当前燃烧比例", "节点1", "节点2", "节点3", 
+			"购买门票", "购买入场门票", "我的邀请人：", "我的直推数量：", "我的直推业绩：", "我的邀请链接：", "复制我的链接", "我的收益", "倒计时", "后收益",
+			"2倍封顶出局还差", "已结算分红收益", "门票销毁倍率",
+			"已销毁门票", "已投入资金", "排行榜奖励", "可结算收益", "结算", "推荐奖励", "节点收益", "可提收益", "我的门票", "复投基金", "门票基金", "兑换",
+			"我的节点", "提现收益", "我的团队业绩："
+		];
+
+		var language_us = [
+			'<img src="./image/4us.png" alt="">', "insurance pool", "bonus pool", "weekly ranking",
+			"distance prize",
+			"ranking", "address", "total investment", "reward", "participation", "tickets", "invitation",
+			"rules", "send eth", "please buy tickets first and then participate, current burning proportion",
+			"node 1", "node 2", "node 3", 
+			"Buy tickets", "buy admission tickets", "my invitees:", "my direct push quantity:",
+			"my direct push performance:", "my invitation link:", "copy my link", "my earnings", "countdown",
+			"post earnings", "twice capped exit return", "settled dividend earnings",
+			"multiple rate of ticket destruction",
+			"Destroyed tickets", "invested funds", "ranking rewards", "settleable income", "settlement",
+			"recommended reward", "node income", "withdrawable income", "my tickets", "re investment fund",
+			"ticket fund", "exchange", "my nodes", "withdrawable income", "My team performance:"
+		];
+
+		tipl_language_sg = ["這是壹個測試，請使用ropsten測試網！", "請使用正式以太坊主網！",
+			"對於Chrome、Firefox請下載 <a style='color:#fcd21c;font-size:18px;' href='https://metamask.io/'>metamask</a> 或 手機端下載 <a style='color:#fcd21c;font-size:18px;' href='https://trustwalletapp.com/'>trustwallet</a> ！",
+			"請先登錄 Metamask 或 trustwallet！", "請選擇正確的以太網絡！", "復制成功：", "請輸入正確的推薦人", 
+			"妳復投的金額必須大於妳的存款總額！", "妳的存款總額必須大於0.01才可提現！", "妳的門票不足 ", "無效的推薦人，請確認推薦人已參與！", "已經存在推薦人了",
+			"無效的推薦人", "妳已經被綁定為推薦人，無法註冊", "妳的上筆投資尚有收益，請等待收益完成後再次投資!", "數據加載中，請稍後...", "最小起購",
+			"請確認妳的輸入是否正確", "等待下壹輪",
+			"節點", "非節點", "必須授權登錄才能玩哦", "授權失敗", "每次只能投資壹次，請等待下壹輪", "成功", "當前可結算金額:", "門票基金不足0.1",
+			"復投必須大於上次投資"
+		];
+
+		tipl_language_zh = ["这是一个测试，请使用ropsten测试网！", "请使用正式以太坊主网！",
+			"对于Chrome、Firefox请下载 <a style='color:#fcd21c;font-size:18px;' href='https://metamask.io/'>metamask</a> 或 手机端下载 <a style='color:#fcd21c;font-size:18px;' href='https://trustwalletapp.com/'>trustwallet</a> ！",
+			"请先登录 Metamask 或 trustwallet！", "请选择正确的以太网络！", "复制成功：", "请输入正确的推荐人", 
+			"你复投的金额必须大于你的存款总额的1.2倍！", "你的存款总额必须大于0.01才可提现！", "你的门票不足 ", "无效的推荐人，请确认推荐人已参与！", "已经存在推荐人了",
+			"无效的推荐人，请确认推荐人参与了玩家盛宴", "你已经被绑定为推荐人，无法注册", "你的上笔投资尚有收益，请等待收益完成后再次投资!", "数据加载中，请稍后...", "最小起购",
+			"请确认你的输入是否正确", "等待下一轮",
+			"节点", "非节点",  "必须授权登录才能玩哦", "授权失败", "每次只能投资一次，请等待下一轮", "成功", "当前可结算金额:", "门票基金不足0.1",
+			"复投必须大于上次投资"
+		];
+
+		var tipl_language_us = ["This is a test, please use the ropsten test network!",
+			"Please use the official Ethereum main network!",
+			"For Chrome, Firefox please download <a style='color:#fcd21c;font-size:18px;' href=' Https://metamask.io/'>metamask</a> or mobile phone download <a style='color:#fcd21c;font-size:18px;' href='https://trustwalletapp.com/'>trustwallet</a> !",
+			"Please login to Metamask or trustwallet!", "Please select the correct Ethernet network!",
+			"Successful copy:", "Please enter the correct referrer", "The minimum investment amount is 1!",
+			"Your total deposit must be greater than 1 before re-investment!",
+			"The amount of your re-investment must be less than your total deposit amount!",
+			"Your total deposit must be greater than 0.01 before it can be withdrawn!",
+			"Your ticket is not enough ",
+			"Invalid referrer, please confirm that the referrer has participated",
+			"There are already recommenders",
+			"Invalid referrer, please confirm that the referee is involved ",
+			"You have been tied as a referrer and cannot register",
+			"Your investment in the investment still has a profit, please wait for the income to be completed and then invest again!",
+			"Data loading, please wait...", "Minimum purchase", "Please confirm that your input is correct",
+			"Waiting",
+			"Node", "non node", "all node", "login must be authorized to play", "authorization failed",
+			"investment can only be made once at a time, please wait for the next round", "success",
+			"current settlement amount:", "ticket fund is less than 0.1",
+			"Reinvestment must be greater than last investment"
+		];
+
+		var language = store.get("language");
+		var lan_arr;
+		var tipl;
+		$(".languageIcon").click(function () {
+			$('.downdrap').toggle();
+		});
+		var initLaguage = function () { //語言初始化
+			if (!language) {
+				language = "language_us"
+			}
+			$(".language-menu").click(function () {
+				store.set("language", "language_" + $(this).attr("data-value"));
+				window.location.reload()
+			});
+			if (!language) {
+				lan_arr = language_us;
+				tipl = tipl_language_us
+			} else {
+				try {
+					lan_arr = eval(language);
+					tipl = eval("tipl_" + language)
+				} catch (err) {
+					lan_arr = language_us;
+					tipl = tipl_language_us
+				}
+			}
+			for (var i = 0; i < lan_arr.length; i++) {
+				$(".lan-" + (i + 1)).html(lan_arr[i])
+			}
+			if (language == 'language_us') {
+				$('.info_us').css('display', 'block');
+				$('.info_sg').css('display', 'none');
+				$('.info_zh').css('display', 'none');
+			} else if (language == 'language_sg') {
+				$('.info_us').css('display', 'none');
+				$('.info_sg').css('display', 'block');
+				$('.info_zh').css('display', 'none');
+			} else {
+				$('.info_us').css('display', 'none');
+				$('.info_sg').css('display', 'none');
+				$('.info_zh').css('display', 'block');
+			}
+		};
+		initLaguage();
+
+		var checkNet = function () { //檢查網絡
+			if (isStart) {
+				return
+			}
+			console.log("init web3...");
+			if (window.ethereum) {
+				web3 = window.web3 = new Web3(ethereum);
+				try {
+					isStart = true;
+					handlerWeb3(window.web3)
+				} catch (error) { }
+			} else {
+				if (window.web3) {
+					web3 = window.web3 = new Web3(web3.currentProvider);
+					isStart = true;
+					handlerWeb3(window.web3)
+				} else {
+					web3 = window.web3 = new Web3(new Web3.providers.HttpProvider(
+						"http://192.168.31.251:8545"));
+					isStart = true;
+					handlerWeb3(window.web3)
+					// alertify.error(tipl[2])
+				}
+			}
+		};
+
+		var handlerWeb3 = function (web3) {
+			iconins = new web3.eth.Contract(abi, gcontract);
+			itickets = new web3.eth.Contract(abitoken, ticket);
+			web3.eth.net.getId(function (err, netId) {
+				netCheck = true;
+				checkLogin()
+				if (netId != gnetId) {
+					if (gnetId == 3 || gnetId == 4) {
+						alertify.error(tipl[0])
+					}
+					if (gnetId == 1) {
+						alertify.error(tipl[1])
+					}
+				} else {
+					netCheck = true;
+					checkLogin()
+				}
+			})
+		};
+
+		var ticketData = function () { //門票數據
+			if (defaultAccount != "" && itickets) {
+				itickets.methods.symbol().call(function (err, result1) {
+					if (!err) {
+						symbol = result1;
+						itickets.methods.balanceOf(defaultAccount).call(function (err, result2) {
+							myTickets = web3.utils.fromWei(BN(result2).toFixed(), "ether")
+							$(".my-ticket").html(BN(myTickets).toFixed(1, 1))
+						});
+						itickets.methods.rate().call(function (err, result3) {
+							$(".ticket-rate").html(BN(result3).toFixed(1, 1));
+						})
+						itickets.methods.getNode(defaultAccount).call(function (err, result4) {
+							var str = "";
+							if ((result4 & 1) == 1) {
+								str += tipl[21] + "1";
+							}
+							if ((result4 & 2) == 2) {
+								str += tipl[21] + "2";
+							}
+							if ((result4 & 4) == 4) {
+								str += tipl[21] + "3";
+							}
+							if ((result4 & 8) == 8) {
+								str += tipl[21] + "4";
+							}
+							if (result4 == 0) {
+								str = tipl[22]
+							} else if (result4 == 15) {
+								str = tipl[23]
+							}
+							$(".my-node").html(str);
+						})
+
+						updateSymbol(symbol)
+					} else {
+						alertify.error(err);
+						return
+					}
+				})
+			}
+		};
+
+		var checkLogin = function () { //檢查登錄
+			var accountInterval = setInterval(function () {
+				web3.eth.getAccounts(function (err, acc) {
+					if (err != null) {
+						console.log("error");
+						return
+					}
+					if (acc.length == 0 && defaultAccount != "") {
+						window.location.reload();
+						return
+					}
+					if (acc.length == 0) {
+						return
+					}
+					if (acc[0] != defaultAccount) {
+						defaultAccount = acc[0];
+						window.location.reload();
+						console.log("account change, start bat updateData!")
+					}
+				})
+			}, 1000);
+
+			web3.eth.getAccounts(function (err, accounts) {
+				if (err) {
+					alertify.error(err);
+					return
+				}
+				if (accounts.length == 0) {
+					alertify.error(tipl[3]);
+					return
+				}
+				defaultAccount = accounts[0];
+				var option = {
+					from: defaultAccount
+				};
+				if (defaultAccount != "") {
+					updateIntiveLink();
+					iconins.methods.getPlayerInfoByAddress(defaultAccount, getNow()).call(option,
+						call3);
+					iconins.methods.getRecommander().call(option, callq1);
+					iconins.methods.getRecomCount().call(option, callq2);
+					// iconins.methods.getWinRecord(defaultAccount).call(call2Rec);
+					iconins.methods.getPlayerExtByAddress(defaultAccount).call({
+						from: defaultAccount
+					}, callExt);
+					iconins.methods.getExtByAddress(defaultAccount).call({
+						from: defaultAccount
+					}, callExt2);
+					iconins.methods.getCanSetted(defaultAccount, getNow()).call({
+						from: defaultAccount
+					}, callGetCanSetted);
+					ticketData()
+				}
+			})
+		};
+
+
+
+		function myinit() {
+			if (typeof window.ethereum === 'undefined') {
+				// alert('Looks like you need a Dapp browser to get started.')
+				// alert('Consider installing MetaMask!')
+			} else {
+				//如果用戶安裝了MetaMask，妳可以要求他們授權應用登錄並獲取其賬號
+				ethereum.enable()
+					//如果用戶拒絕了登錄請求
+					.catch(function (reason) {
+						console.log(reason)
+						if (reason === 'User rejected provider access') {
+						
+							alert(tipl[24])
+						} else {
+					
+							alert(tipl[25])
+						}
+					})
+				
+					.then(function (accounts) {
+						console.log(accounts)
+					})
+			}
+		}
+		$(".buywitheth").click(function () {
+			if (!checkAll()) {
+				return
+			}
+			if (!checkIsOver()) {
+				return
+			}
+			if ($(".ethinput").val() < 1) {
+				alertify.error(tipl[7]);
+				return
+			}
+			if (!checkTicket($(".ethinput").val())) {
+				return
+			}
+			if (myETH > 0) {
+				alertify.error(tipl[26]);
+				return;
+			}
+			var etherValue = web3.utils.toWei($(".ethinput").val(), "ether");
+			if (etherValue <= lastMoney * 1.2) {
+				console.log(etherValue);
+				console.log(lastMoney);
+				alertify.error(tipl[30]);
+				return;
+			}
+			buy(etherValue - refund)
+		});
+		var updateIntiveLink = function () { //更新邀請鏈接
+			var url = location.href;
+			if (url.indexOf("?") != -1) {
+				url = url.split("?")[0]
+			}
+			var g = defaultAccount;
+			if (g) {
+				if ($("#invite-link").html().trim() == "") {
+					$("#invite-link").html(url + "?r=" + g)
+				}
+			}
+		};
+		var callq1 = function (err, result) {
+			if (!result || result == "0x0000000000000000000000000000000000000000") {
+				$(".my-inviter").html("/")
+			} else {
+				$(".my-inviter").html(result.length > 15 ? result.substring(0, 10) + "..." + result
+					.substr(-
+						5) : result)
+			}
+		};
+		var callq2 = function (err, result) {
+			$(".my-recomand-count").html(BN(result[0]).toFixed())
+			$(".my-recomand-sum").html(BN(web3.utils.fromWei(BN(result[1]).toFixed())).toFixed(2, 1));
+		};
+		
+		var fillmygen2 = function (result) {
+			// console.log(result);
+			var a = [];
+
+			a.push(web3.utils.fromWei(BN(result[0]).toFixed(), "ether"));
+			a.push(web3.utils.fromWei(BN(result[1]).toFixed(), "ether"));
+			a.push(web3.utils.fromWei(BN(result[2]).toFixed(), "ether"));
+			// a.push(BN(result[2]).toFixed());
+			refund = result[3];
+			a.push(web3.utils.fromWei(BN(result[3]).toFixed(), "ether"));
+			a.push(web3.utils.fromWei(BN(result[4]).toFixed(), "ether"));
+			a.push(web3.utils.fromWei(BN(result[5]).toFixed(), "ether"));
+			a.push(BN(result[6]).toFixed());
+			// a.push(web3.utils.fromWei(BN(result[7]).toFixed(), "ether"));
+			// a.push(web3.utils.fromWei(BN(result[8]).toFixed(), "ether"));
+			// a.push(web3.utils.fromWei(BN(result[9]).toFixed(), "ether"));
+			// refreshIncomeTimer(a[0]);
+			// $(".pext-incomeper").html(BN(a[1]).toFixed(8, 1)); //可結算收益
+
+			$(".withdrawable").html(BN(a[2]).toFixed(8, 1)); //可提現
+			$(".pext-teamgen").html(BN(a[0]).toFixed(8, 1)); //推薦獎勵
+
+			$(".refund").html(BN(a[3]).toFixed(8, 1)); //復投基金
+			$(".ticketFund").html(BN(a[4]).toFixed(8, 1)); //門票基金
+
+			console.log("代：" + result[5]);
+			lotteryTime = a[6];
+			// $(".pext-anglegen").html(BN(a[8]).toFixed(6, 1));
+			parterCanWd = a[7]
+		};
+		var fillmygen3 = function (result) {
+			var a = [];
+			a.push(BN(result[0][0]).toFixed());
+			a.push(web3.utils.fromWei(BN(result[0][1]).toFixed(), "ether"));
+			a.push(BN(result[1][0]).toFixed());
+			a.push(web3.utils.fromWei(BN(result[1][1]).toFixed(), "ether"));
+			a.push(BN(result[2][0]).toFixed());
+			a.push(web3.utils.fromWei(BN(result[2][1]).toFixed(), "ether"));
+			a.push(BN(result[3][0]).toFixed());
+			a.push(web3.utils.fromWei(BN(result[3][1]).toFixed(), "ether"));
+			a.push(BN(result[4][0]).toFixed());
+			a.push(web3.utils.fromWei(BN(result[4][1]).toFixed(), "ether"));
+			a.push(BN(result[5][0]).toFixed());
+			a.push(web3.utils.fromWei(BN(result[5][1]).toFixed(), "ether"));
+			$(".rec-bp1").html(a[0]);
+			$(".rec-bwin1").html(BN(a[1]).toFixed(6, 1));
+			$(".rec-bp2").html(a[2]);
+			$(".rec-bwin2").html(BN(a[3]).toFixed(6, 1));
+			$(".rec-bp3").html(a[4]);
+			$(".rec-bwin3").html(BN(a[5]).toFixed(6, 1));
+			$(".rec-sp1").html(a[6]);
+			$(".rec-swin1").html(BN(a[7]).toFixed(6, 1));
+			$(".rec-sp2").html(a[8]);
+			$(".rec-swin2").html(BN(a[9]).toFixed(6, 1));
+			$(".rec-sp3").html(a[10]);
+			$(".rec-swin3").html(BN(a[11]).toFixed(6, 1));
+			if (a[0] != 0) {
+				$(".rec-o1").removeClass("hidden")
+			}
+			if (a[2] != 0) {
+				$(".rec-o2").removeClass("hidden")
+			}
+			if (a[4] != 0) {
+				$(".rec-o3").removeClass("hidden")
+			}
+			if (a[6] != 0) {
+				$(".rec-os1").removeClass("hidden")
+			}
+			if (a[8] != 0) {
+				$(".rec-os2").removeClass("hidden")
+			}
+			if (a[10] != 0) {
+				$(".rec-os3").removeClass("hidden")
+			}
+		};
+		var fillmygen4 = function (result) {
+			var a = [];
+			a.push(web3.utils.fromWei(BN(result[1]).toFixed(), "ether"));
+			a.push(web3.utils.fromWei(BN(result[2]).toFixed(), "ether"));
+
+			lastMoney = result[0];
+			$(".my-team-sum").html(BN(web3.utils.fromWei(BN(result[1]).toFixed())).toFixed(2, 1)); //团队
+
+			$(".p-teth").html(BN(a[1]).toFixed(8, 1)); //已投資金額
+			myETH = BN(a[1]).toFixed(8, 1);
+		}
+		var getCanSetted = function (result) {
+			var a = [];
+			a.push(web3.utils.fromWei(BN(result).toFixed(), "ether"));
+			$(".pext-incomeper").html(BN(a[0]).toFixed(8, 1)); //可結算收益
+		}
+		var t1;
+		var t2;
+		var t3;
+		var refreshBigTimer = function (senconds) { //刷新   時間
+			var now = getNow();
+			senconds = now - senconds;
+			senconds = lotteryTime - (senconds % lotteryTime);
+			if (myETH == 0) {
+				senconds = 0;
+			}
+			if (senconds >= 0) {
+				if (t1) {
+					t1.clear()
+				}
+				t1 = new Tick(senconds, ".b-dtime");
+				t1.timer(t1)
+			} else {
+				// $(".b-dtime-div").html(tipl[20])
+			}
+		};
+
+		function getNow() {
+			var time = 0;
+			$.ajax({
+				type: "get",
+				// url: url + "?interval=" + Math.random(),
+				url: "/time.php",
+				data: null,
+				async: false,
+				success: function (msg) {
+					if(isNaN(msg)) {
+						time = new Date().getTime() / 1000;
+					}else{
+						console.log(msg);
+						time = msg;
+					}
+				},
+				error: function (msg) {
+					time = new Date().getTime() / 1000;
+				},
+				complete: function (xmlhttp, textStatus) {
+
+				}
+			});
+			return BN(time).toFixed(0);
+		}
+
+		var refreshTimer24 = function (senconds) { //刷新時間
+			var now = getNow();
+			senconds -= now;
+			if (senconds > 0) {
+				if (t2) {
+					t2.clear()
+				}
+				t2 = new Tick(senconds, ".b-dtime24");
+				t2.timer(t2)
+			} else {
+				$(".b-dtime24-div").html(tipl[20])
+			}
+		};
+
+		var refreshIncomeTimer = function (senconds) { //刷新收入時間
+			if (senconds > 0) {
+				if (t3) {
+					t3.clear()
+				}
+				t3 = new Tick(senconds, ".pext-incomenext");
+				t3.timer(t3)
+			} else {
+				$(".pext-incomenext").html("00:00:00")
+			}
+		};
+		var callExtData = function (err, result) {
+			if (!err) {
+				var a = [];
+				a.push(web3.utils.fromWei(BN(result[0]).toFixed(), "ether"));
+				a.push(BN(result[1]).toFixed());
+				a.push(web3.utils.fromWei(BN(result[2]).toFixed(), "ether"));
+
+				times = a[1];
+				$(".ext-times").html(BN(a[1]).toFixed(1, 1));
+				$(".ext-destory").html(BN(a[2]).toFixed(1, 1));
+				$(".ext-gMin").html(a[0])
+			}
+		};
+		var fillBgpool = function (result) {
+			var a = [];
+			a.push(BN(result[0]).toFixed());
+			a.push(web3.utils.fromWei(BN(result[1]).toFixed(), "ether"));
+			// a.push(web3.utils.fromWei(BN(result[2]).toFixed(), "ether"));
+			$(".b-loop").html(a[0]);
+			// $(".b-eth").html(BN(a[1]).toFixed(4, 1) + " ETH");
+			$(".b-pot").html(BN(a[1]).toFixed(4, 1)) //保險池
+		};
+		var fillSpool = function (result) {
+			var a = [];
+			a.push(BN(result[0]).toFixed());
+			a.push(web3.utils.fromWei(BN(result[1]).toFixed(), "ether"));
+			$(".s-loop").html(a[0]);
+			$(".s-pot").html(BN(a[1]).toFixed(4, 1)) //獎池金額
+		};
+
+		var updateSymbol = function (symbol) {
+			$(".ticket-sybmol").html(symbol)
+		};
+		var update1 = function () {
+			if (defaultAccount != "" && iconins) {
+				iconins.methods.getPlayerInfoByAddress(defaultAccount, getNow()).call(call3);
+				iconins.methods.getRecommander().call({
+					from: defaultAccount
+				}, callq1);
+				iconins.methods.getRecomCount().call({
+					from: defaultAccount
+				}, callq2);
+				// iconins.methods.getWinRecord(defaultAccount).call(call2Rec);
+				iconins.methods.getPlayerExtByAddress(defaultAccount).call({
+					from: defaultAccount
+				}, callExt);
+				iconins.methods.getExtByAddress(defaultAccount).call({
+					from: defaultAccount
+				}, callExt2);
+				iconins.methods.getCanSetted(defaultAccount, getNow()).call({
+					from: defaultAccount
+				}, callGetCanSetted);
+				if ($("#defaultAccount").val() == "" || !$("#defaultAccount").val()) {
+					$("#defaultAccount").val(defaultAccount)
+				}
+				updateIntiveLink();
+				ticketData()
+			}
+		};
+		var getRecomander = function () { //獲取 推薦人
+			var reg = new RegExp("(^|&)r=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) {
+				return unescape(r[2])
+			}
+			return null
+		};
+		var recommander = getRecomander();
+		var checkAll = function () { //檢查全部
+			if (!web3) {
+				noWeb3();
+				return false
+			}
+			if (!netCheck) {
+				errNet();
+				return false
+			}
+			if (!defaultAccount || defaultAccount == "") {
+				alertify.error(tipl[3]);
+				return
+			}
+			return true
+		};
+		var noWeb3 = function () {
+			alertify.error(tipl[2])
+		};
+		var errNet = function () {
+			alertify.error(tipl[4])
+		};
+		var updateExt001 = function () { //更新數據
+			if (iconins) {
+				iconins.methods.getCurrentRoundInfo().call(call2);
+				iconins.methods.getCurrentRoundInfo424().call(calls2);
+				iconins.methods.getTimeLeft(defaultAccount).call(callLeftTime);
+				iconins.methods.getLeftTime24().call(callLeftTime24);
+
+				iconins.methods.getExtData().call(callExtData);
+
+				ticketData();
+			}
+		};
+		var update2 = function () {
+			if (iconins) {
+				iconins.methods.getCurrentRoundInfo().call(call2);
+				iconins.methods.getCurrentRoundInfo424().call(calls2);
+				iconins.methods.getExtData().call(callExtData);
+
+			}
+		};
+		var update3 = function () {
+			console.log('update3');
+			if (iconins) {
+				iconins.methods.getTimeLeft(defaultAccount).call(callLeftTime);
+				iconins.methods.getLeftTime24().call(callLeftTime24)
+			}
+		};
+		var updateRank = function () {
+			if (iconins) {
+				iconins.methods.getRankData(0).call(callRankData);
+				iconins.methods.getRankData(1).call(callRankData);
+				iconins.methods.getRankData(2).call(callRankData);
+				iconins.methods.getRankData(3).call(callRankData);
+				iconins.methods.getRankData(4).call(callRankData);
+			}
+		}
+		var call2 = function (err, result) {
+			if (!err) {
+				fillBgpool(result)
+			} else {
+				console.log(err)
+			}
+		};
+		var calls2 = function (err, result) {
+			if (!err) {
+				fillSpool(result)
+			} else {
+				console.log(err)
+			}
+		};
+		var call3 = function (err, result) {
+			// console.log(result);
+			if (!err) {
+				fillmygen(result)
+			} else {
+				console.log(err)
+			}
+		};
+		var callExt = function (err, result) {
+			if (!err) {
+				fillmygen2(result)
+			} else {
+				console.log(err)
+			}
+		};
+		var callExt2 = function (err, result) {
+			if (!err) {
+				fillmygen4(result)
+			} else {
+				console.log(err)
+			}
+		};
+		var callGetCanSetted = function (err, result) {
+			if (!err) {
+				getCanSetted(result)
+			} else {
+				console.log(err)
+			}
+		};
+		var call2Rec = function (err, result) {
+			if (!err) {
+				fillmygen3(result)
+			} else {
+				console.log(err)
+			}
+		};
+		var callLeftTime = function (err, result) {
+			refreshBigTimer(BN(result).toFixed())
+		};
+		var callLeftTime24 = function (err, result) {
+			refreshTimer24(BN(result).toFixed())
+		};
+		var callRankData = function (err, result) { //更新排行榜
+			var a = [];
+			a.push(result[0]);
+			a.push(result[1]);
+			a.push(web3.utils.fromWei(BN(result[2]).toFixed(), "ether"));
+			a.push(result[3]);
+			var addr = a[3].length > 15 ? a[3].substring(0, 5) + "..." + a[3].substr(-5) : a[3];
+			$(".rank" + a[0] + " > .rank_diva").html(addr);
+			$(".rank" + a[0] + " > .rank_divb").html(BN(a[2]).toFixed(2, 1));
+
+		};
+		var buy = function (etherValue) {
+			if (recommander) {
+				iconins.methods.buy(recommander).send({
+					from: defaultAccount,
+					value: etherValue,
+					gas: 1500000
+				}, function (err, result) {
+					if (err) {
+						ticketData();
+						// alertify.error(err.message)
+					} else {
+						alertify.success(tipl[27])
+					}
+				})
+			} else {
+				iconins.methods.buyT().send({
+					from: defaultAccount,
+					value: etherValue,
+					gas: 600000
+				}, function (err, result) {
+					if (err) {
+						// alertify.error(err.message)
+					} else {
+						ticketData();
+						alertify.success(tipl[27])
+					}
+				})
+			}
+		};
+		
+		
+		
+		var checkRecommander = function () {
+			if (recommander) {
+				if ($(".will-reg-recommander").html() != "" && $(".will-reg-recommander").html() !=
+					"--") {
+					return
+				}
+				$(".will-reg-recommander-con").removeClass("hidden");
+				if (iconins) {
+					iconins.methods.getRegLimit(defaultAccount, recommander).call({
+						from: defaultAccount
+					}, function (err, result) {
+						if (err) {
+							alertify.error(err.message);
+							$(".will-reg-recommander").html(
+								"<span style='color:red;'>ERROR!</span>");
+							return
+						}
+						var isExistsRec = result[0];
+						var isT = result[1];
+						var isCanReg = result[2];
+						var showStr = recommander.length > 15 ? recommander.substring(0, 10) +
+							"..." +
+							recommander.substr(
+								-5) : recommander;
+						if (isExistsRec) {
+							$(".will-reg-recommander").html("<span style='color:red;'>" +
+								showStr +
+								"<span style='font-size:12px;'>&nbsp;(" + tipl[13] +
+								")</span>" +
+								"</span>");
+							return
+						}
+						if (isT) {
+							$(".will-reg-recommander").html("<span style='color:red;'>" +
+								showStr +
+								"<span style='font-size:12px;'>&nbsp;(" + tipl[14] +
+								")</span>" +
+								"</span>");
+							return
+						}
+						if (isCanReg) {
+							$(".will-reg-recommander").html("<span style='color:red;'>" +
+								showStr +
+								"<span style='font-size:12px;'>&nbsp;(" + tipl[15] +
+								")</span>" +
+								"</span>");
+							return
+						}
+						$(".will-reg-recommander").html("<span style='color:green;'>" +
+							showStr +
+							"</span>")
+					})
+				}
+			}
+		};
+
+		var init = function () { //初始化
+
+			$("#buy-ticket-action").click(function () {
+				console.log('tjlksjf');
+				if (!checkAll()) {
+					return
+				}
+				try {
+					if ($("#ticket-ethinput").val() < 0.01) {
+						alertify.error(tipl[18] + " 0.01 ETH");
+						return
+					}
+					console.log('tjlksjf');
+					console.log($("#ticket-ethinput").val());
+					var etherValue = web3.utils.toWei($("#ticket-ethinput").val() + "", "ether");
+					console.log(etherValue);
+					var message = {
+						from: defaultAccount,
+						to: ticket,
+						value: etherValue,
+						gas: 300000
+					};
+
+					web3.eth.sendTransaction(message, function (err, result) {
+						if (err) {
+							alertify.error(err);
+							return
+						} else {
+							ticketData();
+							alertify.success(tipl[27]);
+						}
+					})
+
+				} catch (err) {
+					console.log(err);
+					alertify.error(tipl[19])
+				}
+			});
+
+			$("#buy-node-a").click(function () {
+				if (!checkAll()) {
+					return
+				}
+				try {
+					var etherValue = web3.utils.toWei("10",
+						"ether");
+					var message = {
+						from: defaultAccount,
+						to: ticket,
+						value: etherValue,
+						gas: 300000
+					};
+					web3.eth.sendTransaction(message, function (err, result) {
+						if (err) {
+							alertify.error(err);
+							return
+						} else {
+							ticketData();
+							alertify.success(tipl[27]);
+						}
+					})
+				} catch (err) {
+					console.log(err);
+					alertify.error(tipl[19])
+				}
+			});
+
+			$("#buy-node-b").click(function () {
+				if (!checkAll()) {
+					return
+				}
+				try {
+					var etherValue = web3.utils.toWei("20", "ether");
+					var message = {
+						from: defaultAccount,
+						to: ticket,
+						value: etherValue,
+						gas: 300000
+					};
+
+					web3.eth.sendTransaction(message, function (err, result) {
+						if (err) {
+							alertify.error(err);
+							return
+						} else {
+							ticketData();
+							alertify.success(tipl[27]);
+						}
+					})
+
+
+				} catch (err) {
+					console.log(err);
+					alertify.error(tipl[19])
+				}
+			});
+
+			$("#buy-node-c").click(function () {
+				if (!checkAll()) {
+					return
+				}
+				try {
+					var etherValue = web3.utils.toWei("30", "ether");
+					var message = {
+						from: defaultAccount,
+						to: ticket,
+						value: etherValue,
+						gas: 300000
+					};
+
+					web3.eth.sendTransaction(message, function (err, result) {
+						if (err) {
+							alertify.error(err);
+							return
+						} else {
+							ticketData();
+							alertify.success(tipl[27]);
+						}
+					})
+
+				} catch (err) {
+					console.log(err);
+					alertify.error(tipl[19])
+				}
+			});
+
+			$("#buy-node-d").click(function () {
+				if (!checkAll()) {
+					return
+				}
+				try {
+					var etherValue = web3.utils.toWei("5", "ether");
+					var message = {
+						from: defaultAccount,
+						to: ticket,
+						value: etherValue,
+						gas: 300000
+					};
+
+					itickets.methods.nodeBuy().send({
+						from: defaultAccount,
+						value: etherValue,
+						gas: 300000
+					}, function (err, result) {
+						if (err) {
+							// alertify.error(err.message)
+						} else {
+							ticketData();
+							alertify.success(tipl[27])
+						}
+					})
+
+				} catch (err) {
+					console.log(err);
+					alertify.error(tipl[19])
+				}
+			});
+
+			// $(".ticket-ethinput").on("input", function (e) {
+			// 	var val = e.delegateTarget.value;
+			// 	// $(".ticket-stsinput").html(BN(val).times(1250).toFixed(0, 1));
+			// 	console.log(e.delegateTarget.value)
+			// });
+
+			$(".my-withdraw-btn").click(function () {
+				if (!checkAll()) {
+					return
+				}
+				if ($(".withdrawable").html() < 0.01) {
+					alertify.error(tipl[10]);
+					return
+				}
+				if (iconins) {
+					iconins.methods.take().send({
+						from: defaultAccount,
+						gas: 300000
+					}, function (err, result) {
+						if (!result) {
+							// alertify.error(err.message)
+						} else {
+							alertify.success(tipl[27])
+						}
+					})
+				}
+			});
+
+			$(".action-finish").click(function () {
+				if (!checkAll()) {
+					return
+				}
+				var amtWd = $(".pext-incomeper").html();
+
+				if (!amtWd || amtWd <= 0.01) {
+					alertify.error(tipl[28] + amtWd);
+					alertify.error(tipl[10]);
+					return
+				}
+				if (iconins) {
+					iconins.methods.finishStc().send({
+						from: defaultAccount
+					}, function (err, result) {
+						if (err) {
+							// alertify.error(err.message)
+						} else {
+							alertify.success(tipl[27]);
+						}
+					})
+				}
+			});
+
+			$(".exchangeTicket").click(function () {
+				if (!checkAll()) {
+					return
+				}
+				var tf = $(".ticketFund").html();
+				if (!tf || tf < 0.1) {
+					alertify.error(tipl[29]);
+					return
+				}
+				if (itickets) {
+					itickets.methods.exchangeTicket(gcontract).send({
+						from: defaultAccount
+					}, function (err, result) {
+						if (err) {
+							// alertify.error(err.message)
+						} else {
+							alertify.success(tipl[27]);
+						}
+					})
+				}
+			});
+
+			var clipboard = new ClipboardJS("#share-link");
+			clipboard.on("success", function (e) {
+				e.clearSelection();
+				alertify.success(tipl[5] + " " + e.text)
+			});
+			myinit();
+			checkNet();
+			setTimeout(updateExt001, 3000);
+
+			updateRank();
+			setInterval(function () {
+				console.log("check net...");
+				checkNet();
+				checkRecommander();
+				updateRank();
+				// updateExt001();
+			}, 3000);
+			setInterval(function () {
+				update1();
+				update2()
+			}, 10000);
+			setInterval(function () {
+				update3();
+			}, 20000)
+		};
+		init();
+	});
+
+	// 切換參與、門票、邀請、規則
+	$(function () {
+		$(".from_div div").click(function () {
+			$(this).addClass("from_div_hover");
+			$(this).siblings().removeClass("from_div_hover");
+			var index = $(this).index();
+			$(".fromInputBox>div").eq(index).show().siblings().hide();
+		});
+	});
+
+</script>
+
+</html>
